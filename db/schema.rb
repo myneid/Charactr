@@ -9,18 +9,67 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081011173348) do
+ActiveRecord::Schema.define(:version => 20081011205520) do
 
   create_table "campaigns", :force => true do |t|
-    t.text     "name",               :null => false
+    t.string   "name",               :null => false
     t.integer  "created_by_user_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "character_classes", :force => true do |t|
+    t.string  "name",                               :null => false
+    t.integer "fortitude_def_bonus", :default => 0, :null => false
+    t.integer "reflex_def_bonus",    :default => 0, :null => false
+    t.integer "will_def_bonus",      :default => 0, :null => false
+  end
+
+  create_table "characters", :force => true do |t|
+    t.integer  "user_id",                                           :null => false
+    t.integer  "campaign_id",                                       :null => false
+    t.string   "name",                                              :null => false
+    t.string   "sex"
+    t.integer  "character_class_id",                                :null => false
+    t.integer  "race_id",                                           :null => false
+    t.integer  "experience_points",        :default => 0,           :null => false
+    t.integer  "level",                    :default => 1,           :null => false
+    t.integer  "max_hit_points",                                    :null => false
+    t.integer  "current_hit_points",                                :null => false
+    t.integer  "healing_surge_value",                               :null => false
+    t.integer  "surges_per_day",                                    :null => false
+    t.integer  "current_surges_remaining",                          :null => false
+    t.integer  "current_action_points",                             :null => false
+    t.integer  "misc_initiative_bonus",    :default => 0,           :null => false
+    t.integer  "misc_armor_class_bonus",   :default => 0,           :null => false
+    t.integer  "misc_fortitude_bonus",     :default => 0,           :null => false
+    t.integer  "misc_reflex_bonus",        :default => 0,           :null => false
+    t.integer  "misc_will_bonus",          :default => 0,           :null => false
+    t.string   "height"
+    t.string   "weight"
+    t.string   "alignment",                :default => "unaligned", :null => false
+    t.integer  "strength",                                          :null => false
+    t.integer  "constitution",                                      :null => false
+    t.integer  "dexterity",                                         :null => false
+    t.integer  "intellegence",                                      :null => false
+    t.integer  "wisdom",                                            :null => false
+    t.integer  "charisma",                                          :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "races", :force => true do |t|
+    t.string  "name",                         :null => false
+    t.integer "speed",                        :null => false
+    t.string  "size",   :default => "medium", :null => false
+    t.string  "vision", :default => "normal", :null => false
+  end
+
   create_table "users", :force => true do |t|
-    t.string "name",  :null => false
-    t.string "email"
+    t.string   "name",       :null => false
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

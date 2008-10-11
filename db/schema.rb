@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081011231100) do
+ActiveRecord::Schema.define(:version => 20081011231258) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name",               :null => false
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(:version => 20081011231100) do
   create_table "users", :force => true do |t|
     t.string   "name",       :null => false
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weapons", :force => true do |t|
+    t.integer  "character_id", :null => false
+    t.string   "name",         :null => false
+    t.text     "description"
+    t.string   "key_ability"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

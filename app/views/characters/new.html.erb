@@ -2,7 +2,7 @@
 
 <% form_for(@character) do |f| %>
   <%= f.error_messages %>
-  <%= f.text_field :name %>
+  Name: <%= f.text_field :name %>
   <p>
     <%= f.submit "Create" %>
   </p>

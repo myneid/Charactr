@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :openid, :member => {:complete => :get}
 
   map.login ':controller/:action', :controller => 'openids', :action => 'new'
+  map.home ':controller', :controller => 'openids', :action => 'new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   

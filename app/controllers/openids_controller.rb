@@ -10,7 +10,7 @@ class OpenidsController < ApplicationController
     response = openid_consumer.begin openid_url
     
     response.add_extension_arg('sreg', 'required', 'email,nickname')
-    trust_domain = url_for(:controller => 'openid')
+    trust_domain = home_url
     logger.debug "trust domain: #{trust_domain}" if logger.debug?
     redirect_url = response.redirect_url(trust_domain, complete_openid_url)
     redirect_to redirect_url and return
@@ -21,10 +21,25 @@ class OpenidsController < ApplicationController
         
     if response.status == OpenID::Consumer::SUCCESS
       session[:openid] = response.identity_url
-      @registration_info = response.extension_response('sreg', false)
+      @registration_info = response.extension_response('openid.sreg', true)
       logger.debug "reg info: #{@registration_info}" if logger.debug?
       
-      redirect_to characters_url and return
+      u = User.find_by_openid_url(session[:openid])
+      if(!u.nil?)
+        redirect_to characters_url and return
+      end
+      
+      if(!@registration_info.nil?)
+        u = User.new
+        u.openid_url = session[:openid]
+        u.name = @registration_info['nickname']
+        u.email = @registration_info['email']
+        if u.save
+          redirect_to characters_url and return
+        end
+      end
+      
+      redirect_to new_user_url and return
     end
     
     # TODO(sholder) handle other states more gracefully

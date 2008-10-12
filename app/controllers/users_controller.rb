@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     
     @user = User.new(params[:user])
     @user.openid_url = session[:openid]
-    @user.name = session[:nickname]
+    @user.name = session[:nickname] unless @user.name
 
     respond_to do |format|
       if @user.save

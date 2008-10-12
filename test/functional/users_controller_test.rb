@@ -30,6 +30,16 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_path(assigns(:user))
   end
 
+  def test_should_accept_username_from_request_params
+    # should pull the open id url from the session
+    @request.session[:openid] = 'http://test.user.openid.com'
+    assert_difference('User.count') do
+      post :create, :user => {:name => 'tester'}
+    end
+
+    assert_redirected_to user_path(assigns(:user))
+  end
+
   def test_should_show_form_if_name_not_provided
     # should pull the open id url from the session
     @request.session[:openid] = 'http://test.user.openid.com'

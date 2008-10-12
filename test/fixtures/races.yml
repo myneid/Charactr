@@ -1,0 +1,12 @@
+
+halfling:
+    name: Halfling
+    speed: 6
+    size: small
+    vision: normal
+
+half_elf:
+    name: Half-elf
+    speed: 6
+    size: medium
+    vision: low-light

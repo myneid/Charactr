@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(:version => 20081011231258) do
     t.integer  "strength",                                          :null => false
     t.integer  "constitution",                                      :null => false
     t.integer  "dexterity",                                         :null => false
-    t.integer  "intellegence",                                      :null => false
+    t.integer  "intelligence",                                      :null => false
     t.integer  "wisdom",                                            :null => false
     t.integer  "charisma",                                          :null => false
     t.datetime "created_at"

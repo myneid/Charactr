@@ -38,19 +38,19 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 
-  # Make Active Record use UTC-base instead of local time
-  # config.active_record.default_timezone = :utc
+  # Make Time.zone default to the specified zone, and make Active Record store time values
+  # in the database in UTC, and return them converted to the specified local zone.
+  # Run "rake -D time" for a list of tasks for finding time zone names. Comment line to use default local time.
+  config.time_zone = 'UTC'
 
-  # Add new inflection rules using the following format
-  # (all these examples are active by default):
-  # Inflector.inflections do |inflect|
-  #   inflect.plural /^(ox)$/i, '\1en'
-  #   inflect.singular /^(ox)en/i, '\1'
-  #   inflect.irregular 'person', 'people'
-  #   inflect.uncountable %w( fish sheep )
-  # end
-
-  # See Rails::Configuration for more options
+  # Your secret key for verifying cookie session data integrity.
+  # If you change this key, all old sessions will become invalid!
+  # Make sure the secret is at least 30 characters and all random, 
+  # no regular words or you'll be exposed to dictionary attacks.
+  config.action_controller.session = {
+    :session_key => '_charactr_session',
+    :secret      => 'b1bcde3d42e5369d612979af960900d6cece461ea42841fd8e0b304aa9e97c358ca07e75b6c11da663fd2d32edde85227232ee5858529df9fbfb98676f1d0550'
+  }
 end
 
 # Add new mime types for use in respond_to blocks:

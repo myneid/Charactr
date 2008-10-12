@@ -1,7 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+flappy:
+    campaign: online
+    character_class: rogue
+    race: halfling
+    user: myneid
+    name: Flappy
+    experience_points: 755
+    level: 1
+    max_hit_points: 25
+    current_hit_points: 19
+    healing_surge_value: 8
+    surges_per_day: 7
+    current_surges_remaining: 4
+    current_action_points: 1
+    alignment: good
+    strength: 13
+    dexterity: 16
+    constitution: 11
+    intelligence: 12
+    wisdom: 8
+    charisma: 14

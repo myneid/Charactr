@@ -1,0 +1,8 @@
+
+rogue:
+    name: Rogue
+    reflex_def_bonus: 2
+
+cleric:
+    name: Cleric
+    will_def_bonus: 2

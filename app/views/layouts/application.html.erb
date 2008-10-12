@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>freeSite template</title>
+<link rel="stylesheet" href="/style.css" type="text/css" />
+<%= stylesheet_link_tag 'scaffold' %>
+</head>
+
+<body>
+<div id="header">
+		<h1>Charactr</h1>
+		<h2>a place for unity in d&d</h2>
+</div>
+<div id="nav">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Campaigns</a></li>
+		<li><a href="#">Characters</a></li>
+		<li><a href="#">Users</a></li>
+		
+	</ul>
+</div>
+<div id="wrap">	
+	<div id="main">
+		<div class="main_header headtext">
+			<h1>Welcome</h1>
+		</div>
+		<div class="main_content area">
+		
+		<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div id="sidebar">
+		<div class="side_header headtext">
+			<h1>Navigation</h1>
+		</div>
+		<div class="side_content area">
+			<ul>
+				<li><a href="#">sublistings</a></li>
+				
+			</ul>
+		</div>
+		
+</div>
+</body>
+</html>

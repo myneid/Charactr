@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 sholder:
   name: Stephen
+  openid_url: http://sholder.testopenid.com
 myneid:
   name: Tanguy
+  openid_url: http://myneid.testopenid.com
 jdunphy:
   name: Jacob
+  openid_url: http://jdunphy.testopenid.com

@@ -1,5 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :users
+
   map.resources :characters
+
+  map.resource :openid, :member => {:complete => :get}
+
+  map.login ':controller/:action', :controller => 'openids', :action => 'new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   
@@ -22,4 +28,6 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
   map.connect ':controller/:action/:id'
+  
+  map.connect '', :controller => 'openids', :action => :new
 end

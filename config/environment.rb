@@ -16,6 +16,14 @@ Rails::Initializer.run do |config|
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 
+  # Specify gems that this application depends on. 
+  # They can then be installed with "rake gems:install" on new installations.
+  config.gem 'ruby-openid', :lib => 'openid'
+  # config.gem "bj"
+  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "aws-s3", :lib => "aws/s3"
+
+
   # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
   # config.plugins = %W( exception_notification ssl_requirement )
 
@@ -53,8 +61,4 @@ Rails::Initializer.run do |config|
   }
 end
 
-# Add new mime types for use in respond_to blocks:
-# Mime::Type.register "text/richtext", :rtf
-# Mime::Type.register "application/x-mobile", :mobile
-
-# Include your application configuration below
+require 'openid/store/filesystem'

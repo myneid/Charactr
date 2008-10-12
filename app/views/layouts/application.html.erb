@@ -1,18 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Characters: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'style' %>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Charactr</title>
+
+<%= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'style' %>
 </head>
+
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield  %>
-
+<div id="header">
+		<h1>Charactr</h1>
+		<h2></h2>
+</div>
+<div id="nav">
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/campaigns">Campaigns</a></li>
+		<li><a href="/characters/">Characters</a></li>
+		<li><a href="/users/">Users</a></li>
+		
+	</ul>
+</div>
+<div id="wrap">	
+	<div id="main">
+		<div class="main_header headtext">
+			<h1><%= controller.controller_name %>: <%= controller.action_name %></h1>
+		</div>
+		<div class="main_content area">
+		
+		<p style="color: green"><%= flash[:notice] %></p>
+			<%= yield %>
+		</div>
+	</div>
+	
+	<div id="sidebar">
+		<div class="side_header headtext">
+			<h1>Navigation</h1>
+		</div>
+		<div class="side_content area">
+			<ul>
+				<li><a href="#">sublistings</a></li>
+				
+			</ul>
+		</div>
+		
+</div>
 </body>
 </html>

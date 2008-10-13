@@ -36,6 +36,39 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal(5, c.half_level_modifier)
   end
   
-  # TODO tests for calculating defenses, initiative, etc.
+  # TODO calculate AC - need to know if character is wearing heavy armor or not (int/dex only applies w/ no armor)
+  
+  def test_calculate_reflex_defense_dex_higher
+    # should be 10 + class + attribute + misc modifier (equipment inc. shield) + 1/2 level
+    c = characters(:flappy)
+    assert_equal(16, c.reflex_defense)
+  end
+
+  def test_calculate_reflex_defense_int_higher
+    c = characters(:izzard)
+    assert_equal(16, c.reflex_defense)
+  end
+  
+  def test_calculate_will_defense_wis_higher
+    c = characters(:izzard)
+    assert_equal(16, c.will_defense)
+  end
+
+  def test_calculate_will_defense_cha_higher
+    c = characters(:flappy)
+    assert_equal(12, c.will_defense)
+  end
+
+  def test_calculate_fort_defense_str_higher
+    c = characters(:flappy)
+    assert_equal(11, c.fortitude_defense)
+  end
+  
+  def test_calculate_fort_defense_con_higher
+    c = characters(:izzard)
+    assert_equal(12, c.fortitude_defense)
+  end
+  
+  # TODO tests for calculating initiative, etc.
 
 end

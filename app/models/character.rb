@@ -46,4 +46,26 @@ class Character < ActiveRecord::Base
     level / 2
   end
 
+  # TODO(sholder) theres probably a way to refactor these to reduce duplication
+  def reflex_defense
+    ability = Math.max(dexterity, intelligence)
+    10 + Character.ability_modifier_for(ability) + half_level_modifier + character_class.reflex_def_bonus + misc_reflex_bonus 
+  end
+
+  def will_defense
+    ability = Math.max(wisdom, charisma)
+    10 + Character.ability_modifier_for(ability) + half_level_modifier + character_class.will_def_bonus + misc_will_bonus
+  end
+
+  def fortitude_defense
+    ability = Math.max(strength, constitution)
+    10 + Character.ability_modifier_for(ability) + half_level_modifier + character_class.fortitude_def_bonus + misc_fortitude_bonus
+  end
+
+end
+
+module Math
+  def self.max(a, b)
+    return a > b ? a : b
+  end
 end

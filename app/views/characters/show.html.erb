@@ -65,11 +65,11 @@
 
 <table id="character_defenses">
   <tr><td colspan="2">Defenses</td></tr>
-  <!-- TODO calculate -->
+  <!-- TODO calculate AC -->
   <tr><td>AC</td><td>X</td></tr>
-  <tr><td>Fort</td><td>X</td></tr>
-  <tr><td>Ref</td><td>X</td></tr>
-  <tr><td>Will</td><td>X</td></tr>  
+  <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
+  <tr><td>Ref</td><td><%= @character.reflex_defense %></td></tr>
+  <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
 </table>
 
 <table id="character_misc_attributes">

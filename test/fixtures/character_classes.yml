@@ -6,3 +6,7 @@ rogue:
 cleric:
     name: Cleric
     will_def_bonus: 2
+    
+wizard:
+    name: Wizard
+    will_def_bonus: 2

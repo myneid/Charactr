@@ -26,16 +26,24 @@ class Character < ActiveRecord::Base
 
   ABILITIES = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
 
-  # Automatically generate xxx_modifier methods for each ability
+  # Automatically generate xxx_modifier, xxx_modifier_with_level methods for each ability
   ABILITIES.map{|ability| ability.downcase}.each do |a|
     Character.send(:define_method, "#{a}_modifier") do
       score = send(a.to_sym)
       Character.ability_modifier_for(score)
     end
+    
+    Character.send(:define_method, "#{a}_modifier_with_level") do
+      send("#{a}_modifier".to_sym) + half_level_modifier
+    end
   end
 
   def self.ability_modifier_for(ability_score)
     (ability_score - 10) / 2
+  end
+  
+  def half_level_modifier
+    level / 2
   end
 
 end

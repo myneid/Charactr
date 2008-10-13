@@ -22,39 +22,44 @@
 </table>
 
 <table id="character_ability_scores">
-  <!-- TODO display modifiers, mod + 1/2 level -->
-  <tr><td>Ability</td><td>Score</td><td>Modifier</td></tr>
+  <tr><td>Ability</td><td>Score</td><td>Modifier</td><td>Mod + 1/2 level</td></tr>
   <tr>
     <td>Str</td>
     <td><%= @character.strength %></td>
     <td><%= @character.strength_modifier %></td>
+    <td><%= @character.strength_modifier_with_level %></td>
   </tr>
   <tr>
     <td>Con</td>
     <td><%= @character.constitution %></td>
     <td><%= @character.constitution_modifier %></td>
+    <td><%= @character.constitution_modifier_with_level %></td>    
   </tr>
   <tr class="separator"><td colspan="3"></td></tr>
   <tr>
     <td>Dex</td>
     <td><%= @character.dexterity %></td>
     <td><%= @character.dexterity_modifier %></td>
+    <td><%= @character.dexterity_modifier_with_level %></td>
   </tr>
   <tr>
     <td>Int</td>
     <td><%= @character.intelligence %></td>
     <td><%= @character.intelligence_modifier %></td>
+    <td><%= @character.intelligence_modifier_with_level %></td>
   </tr>
   <tr class="separator"><td colspan="2"></td></tr>
   <tr>
     <td>Wis</td>
     <td><%= @character.wisdom %></td>
     <td><%= @character.wisdom_modifier %></td>
+    <td><%= @character.wisdom_modifier_with_level %></td>
   </tr>
   <tr>
     <td>Cha</td>
     <td><%= @character.charisma %></td>
     <td><%= @character.charisma_modifier %></td>
+    <td><%= @character.charisma_modifier_with_level %></td>
   </tr>
 </table>
 

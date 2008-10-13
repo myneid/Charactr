@@ -31,4 +31,9 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def login_user(user)
+    @request.session[:openid] = users(user).openid_url
+    @request.session[:user_id] = users(user).id
+  end
 end

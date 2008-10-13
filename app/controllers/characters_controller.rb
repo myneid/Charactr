@@ -1,4 +1,7 @@
 class CharactersController < ApplicationController
+  
+  before_filter :ensure_user_valid
+  
   # GET /characters
   # GET /characters.xml
   def index
@@ -44,6 +47,7 @@ class CharactersController < ApplicationController
     # fill in default values
     @character.current_hit_points = @character.max_hit_points
     @character.current_surges_remaining = @character.surges_per_day
+    @character.user = current_user
     
     respond_to do |format|
       if @character.save

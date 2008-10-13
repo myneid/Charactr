@@ -3,8 +3,7 @@ require 'test_helper'
 class CampaignsControllerTest < ActionController::TestCase
   
   def setup
-    @request.session[:openid] = users(:sholder).openid_url
-    @request.session[:user_id] = users(:sholder).id
+    login_user(:sholder)
   end
   
   def test_should_require_user

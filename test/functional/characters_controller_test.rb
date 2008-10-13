@@ -2,6 +2,18 @@ require 'test_helper'
 
 class CharactersControllerTest < ActionController::TestCase
 
+  def setup
+    login_user(:jdunphy)
+  end
+  
+  def test_should_require_valid_user
+    @request.session[:openid] = nil
+    @request.session[:user_id] = nil
+    
+    get :index
+    assert_redirected_to login_url
+  end
+
   def test_should_get_index
     get :index
     assert_response :success
@@ -13,16 +25,14 @@ class CharactersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-
-
   def test_should_create_character
     # shouldn't need to specify current_hit_points, current_surges_remaining on create
+    # owning user should come from the session
     character_data = {
       :name => 'Four',
       :campaign_id => campaigns(:online).id,
       :character_class_id => character_classes(:cleric).id,
       :race_id => races(:half_elf).id,
-      :user_id => users(:jdunphy).id,
       :experience_points => 0,
       :level => 1,
       :sex => 'male',

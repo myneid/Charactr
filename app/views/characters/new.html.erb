@@ -1,9 +1,60 @@
-<h1>New character</h1>
-
 <% form_for(@character) do |f| %>
   <%= f.error_messages %>
-  Name: <%= f.text_field :name %>
-  <p>
+
+  <h1>New character for campaign: <%= select 'character', :campaign_id, campaigns %></h1>
+  
+  <!-- Note: this whole section is ripe for extracting into a partial -->
+  <!-- especially when it comes time to write the views for editing a character -->
+  
+  <table id="character_header">
+    <tr>
+      <td>Name:</td><td><%= f.text_field :name, :size => 15 %></td>
+      <td>Lvl:</td><td><%= f.text_field :level, :size => 3 %></td>
+      <td>Class</td><td><%= select 'character', :character_class_id, classes %></td>
+      <td>Alignment:</td><td><%= select 'character', :alignment, alignments %></td>
+      <td>XP:</td><td><%= f.text_field :experience_points, :size => 8 %></td>
+    </tr>
+    <tr>
+      <td>Race:</td><td><%= select 'character', :race_id, races %></td>
+      <td>Size:</td><td></td>
+      <td>Gender:</td><td><%= select 'character', :sex, ['male', 'female'] %></td>
+      <td>Height:</td><td><%= f.text_field :height, :size => 3 %></td>
+      <td>Weight:</td><td><%= f.text_field :weight, :size => 3 %></td>
+    </tr>
+  </table>
+  
+  <table id="character_ability_scores">
+    <tr><td>Str</td><td><%= f.text_field :strength, :size => 2 %></td></tr>
+    <tr><td>Con</td><td><%= f.text_field :constitution, :size => 2%></td></tr>
+    <tr class="separator"><td colspan="2"></td></tr>
+    <tr><td>Dex</td><td><%= f.text_field :dexterity, :size => 2%></td></tr>
+    <tr><td>Int</td><td><%= f.text_field :intelligence, :size => 2%></td></tr>
+    <tr class="separator"><td colspan="2"></td></tr>
+    <tr><td>Wis</td><td><%= f.text_field :wisdom, :size => 2 %></td></tr>
+    <tr><td>Cha</td><td><%= f.text_field :charisma, :size => 2%></td></tr>
+  </table>
+  
+  <table id="character_defenses">
+    <tr><td colspan="2">Misc Defense Modifiers</td></tr>
+
+    <tr><td>Misc AC mod</td><td><%= f.text_field :misc_armor_class_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Fort mod</td><td><%= f.text_field :misc_fortitude_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Ref mod</td><td><%= f.text_field :misc_reflex_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Will mod</td><td><%= f.text_field :misc_will_bonus, :size => 2 %></td></tr>
+    
+    <tr><td colspan="2" class="explanatory_text">Enter only modifiers from equipment, feats, etc.</td></tr>
+    <tr><td colspan="2" class="explanatory_text"> Level/class bonuses will be calculated automatically.</td></tr>
+  </table>
+  
+  <table id="character_misc_attributes">
+    <tr><td colspan="2">Misc Attributes</td></tr>
+    <tr><td>Move modifier</td><td>TODO</td></tr>
+    <tr><td>Misc Init mod</td><td><%= f.text_field :misc_initiative_bonus, :size => 3 %></td></tr>
+    <tr><td>Max HP</td><td><%= f.text_field :max_hit_points, :size => 3 %></td></tr>
+    <tr><td>Healing Surges/day</td><td><%= f.text_field :surges_per_day, :size => 3 %></td></tr>
+    <tr><td>Healing Surge value</td><td><%= f.text_field :healing_surge_value, :size => 3 %></td></tr>
+  </table>
+  <p class="character_form_footer">
     <%= f.submit "Create" %>
   </p>
 <% end %>

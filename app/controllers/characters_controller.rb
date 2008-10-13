@@ -46,6 +46,7 @@ class CharactersController < ApplicationController
     @character = Character.new(params[:character])
     # fill in default values
     @character.current_hit_points = @character.max_hit_points
+    @character.current_action_points = 0
     @character.current_surges_remaining = @character.surges_per_day
     @character.user = current_user
     

@@ -1,6 +1,22 @@
 #openid_url {
-  background: url(/images/login-bg.gif) no-repeat #FFF 5px;
-  padding-left: 25px;
+    background: url(/images/login-bg.gif) no-repeat #FFF 5px;
+    padding-left: 25px;
+}
+
+.explanatory_text {
+    font-size: 6pt;
+}
+
+#character_ability_scores {
+    float: left;
+}
+
+#character_defenses {
+    float: left;
+}
+
+#character_misc_attributes {
+    float: left;
 }
 
 body {

@@ -1,3 +1,4 @@
+
 #openid_url {
     background: url(/images/login-bg.gif) no-repeat #FFF 5px;
     padding-left: 25px;
@@ -8,14 +9,20 @@
 }
 
 #character_ability_scores {
+    border-color: black;
+    border-style: solid;
     float: left;
 }
 
 #character_defenses {
+    border-color: black;
+    border-style: solid;
     float: left;
 }
 
 #character_misc_attributes {
+    border-color: black;
+    border-style: solid;
     float: left;
 }
 

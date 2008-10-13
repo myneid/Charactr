@@ -3,7 +3,7 @@ require 'test_helper'
 class CharactersControllerTest < ActionController::TestCase
 
   def setup
-    login_user(:jdunphy)
+    login_user(:myneid)
   end
   
   def test_should_require_valid_user
@@ -18,6 +18,10 @@ class CharactersControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:characters)
+    # should only see your own characters
+    assigns(:characters).each do |char|
+      assert_equal(users(:myneid), char.user)
+    end
   end
 
   def test_should_get_new

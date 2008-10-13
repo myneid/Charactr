@@ -8,3 +8,6 @@ myneid:
 jdunphy:
   name: Jacob
   openid_url: http://jdunphy.testopenid.com
+stng:
+  name: Stan
+  openid_url: http://stng.testopenid.com

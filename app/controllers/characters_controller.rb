@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
   # GET /characters
   # GET /characters.xml
   def index
-    @characters = Character.find(:all)
+    @characters = current_user.characters
 
     respond_to do |format|
       format.html # index.html.erb

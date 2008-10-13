@@ -21,3 +21,25 @@ flappy:
     intelligence: 12
     wisdom: 8
     charisma: 14
+    
+izzard:
+    campaign: pnp
+    character_class: wizard
+    race: human
+    user: stng
+    name: Izzard
+    experience_points: 5225
+    level: 5
+    max_hit_points: 37
+    current_hit_points: 12
+    healing_surge_value: 9
+    surges_per_day: 7
+    current_surges_remaining: 1
+    current_action_points: 0
+    alignment: unaligned
+    strength: 9
+    dexterity: 14
+    constitution: 10
+    intelligence: 18
+    wisdom: 14
+    charisma: 12

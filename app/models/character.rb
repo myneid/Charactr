@@ -47,6 +47,14 @@ class Character < ActiveRecord::Base
   end
 
   # TODO(sholder) theres probably a way to refactor these to reduce duplication
+  
+  # WARNING: this is not technically correct, ability mod should only apply if
+  # character is not wearing heavy armor
+  def armor_class
+    ability = Math.max(dexterity, intelligence)
+    10 + Character.ability_modifier_for(ability) + half_level_modifier + misc_armor_class_bonus 
+  end
+  
   def reflex_defense
     ability = Math.max(dexterity, intelligence)
     10 + Character.ability_modifier_for(ability) + half_level_modifier + character_class.reflex_def_bonus + misc_reflex_bonus 

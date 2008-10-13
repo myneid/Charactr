@@ -15,4 +15,16 @@ class ApplicationController < ActionController::Base
     redirect_to login_url and return false unless is_logged_in?
     true
   end
+  
+  def ensure_user_valid
+    if ensure_logged_in
+      redirect_to new_user_url and return false unless !session[:user_id].nil?
+    end
+    true
+  end
+  
+  def current_user
+    @current_user ||= User.find(session[:user_id])
+    @current_user
+  end
 end

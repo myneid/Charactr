@@ -28,6 +28,7 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to user_path(assigns(:user))
+    assert_equal(assigns(:user).id, @response.session[:user_id])
   end
 
   def test_should_accept_username_from_request_params

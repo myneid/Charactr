@@ -26,6 +26,7 @@ class OpenidsController < ApplicationController
       
       u = User.find_by_openid_url(session[:openid])
       if(!u.nil?)
+        session[:user_id] = u.id
         redirect_to characters_url and return
       end
       

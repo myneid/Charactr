@@ -200,6 +200,10 @@ div#footer p a {
 
 /* ADDED BY JDUNPHY */
 
+.flash-notice {
+   color: green;
+}
+
 h4 {
   margin: 0px;
   padding: 0px;

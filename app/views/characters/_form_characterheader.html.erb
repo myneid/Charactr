@@ -1,0 +1,16 @@
+<table id="character_header">
+    <tr>
+      <td>Name:</td><td><%= f.text_field :name, :size => 15 %></td>
+      <td>Lvl:</td><td><%= f.text_field :level, :size => 3 %></td>
+      <td>Class</td><td><%= select 'character', :character_class_id, classes %></td>
+      <td>Alignment:</td><td><%= select 'character', :alignment, alignments %></td>
+      <td>XP:</td><td><%= f.text_field :experience_points, :size => 8 %></td>
+    </tr>
+    <tr>
+      <td>Race:</td><td><%= select 'character', :race_id, races %></td>
+      <td>Size:</td><td></td>
+      <td>Gender:</td><td><%= select 'character', :sex, ['male', 'female'] %></td>
+      <td>Height:</td><td><%= f.text_field :height, :size => 3 %></td>
+      <td>Weight:</td><td><%= f.text_field :weight, :size => 3 %></td>
+    </tr>
+  </table>

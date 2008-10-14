@@ -1,0 +1,11 @@
+ <table id="character_defenses">
+    <tr><td colspan="2">Misc Defense Modifiers</td></tr>
+
+    <tr><td>Misc AC mod</td><td><%= f.text_field :misc_armor_class_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Fort mod</td><td><%= f.text_field :misc_fortitude_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Ref mod</td><td><%= f.text_field :misc_reflex_bonus, :size => 2 %></td></tr>
+    <tr><td>Misc Will mod</td><td><%= f.text_field :misc_will_bonus, :size => 2 %></td></tr>
+    
+    <tr><td colspan="2" class="explanatory_text">Enter only modifiers from equipment, feats, etc.</td></tr>
+    <tr><td colspan="2" class="explanatory_text"> Level/class bonuses will be calculated automatically.</td></tr>
+  </table>

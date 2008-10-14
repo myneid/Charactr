@@ -9,21 +9,18 @@
 }
 
 #character_ability_scores {
-    border-color: black;
-    border-style: solid;
+    border: 1px solid black;
     float: left;
 }
 
 #character_defenses {
-    border-color: black;
-    border-style: solid;
-    float: left;
+  border: 1px solid black;
+  float: left;
 }
 
 #character_misc_attributes {
-    border-color: black;
-    border-style: solid;
-    float: left;
+  border: 1px solid black;
+  float: left;
 }
 
 body {
@@ -199,4 +196,32 @@ div#footer p {
 }
 div#footer p a {
 	color:#999;
+}
+
+/* ADDED BY JDUNPHY */
+
+h4 {
+  margin: 0px;
+  padding: 0px;
+}
+
+div#character_attributes {
+  float: right;
+  width: 200px; 
+  background-color: #e6e6e6;
+  border: 1px dotted #ccc;
+}
+
+div#character_attributes ul {
+  list-style-type:none;
+  padding:2px;
+}
+
+div#character_attributes label {
+  width: 60px;
+  display: block;
+  font-weight: bold;
+  padding-right: 2px;
+  float: left;
+  text-align: right;
 }

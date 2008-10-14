@@ -2,27 +2,28 @@
 <!-- TODO display Curr HP -->
 <!-- TODO display a "Heal Me" button -->
 <!-- TODO display a "I took damage!" button -->
-
-<table id="character_header">
-  <tr>
-    <td>Name:</td><td><%= h @character.name %></td>
-    <td>Lvl:</td><td><%= @character.level %></td>
-    <td>Class</td><td><%= h @character.class.name %></td>
-    <td>Alignment:</td><td><%= @character.alignment %></td>
+<div>
+  <%= link_to 'Edit', edit_character_path(@character) %> |
+  <%= link_to 'Back', characters_path %>
+</div>
+<div id="character_attributes">
+  <ul>
+    <li><label>Name:</label><%= h @character.name %></li>
+    <li><label>Lvl:</label><%= @character.level %></li>
+    <li><label>Class:</label><%= h @character.character_class.name %></li>
+    <li><label>Alignment:</label><%= @character.alignment %></li>
     <!-- TODO have a quick way to edit XP -->
-    <td>XP:</td><td><%= @character.experience_points %></td>
-  </tr>
-  <tr>
-    <td>Race:</td><td><%= h @character.race.name %></td>
-    <td>Size:</td><td><%= h @character.race.size %></td>
-    <td>Gender:</td><td><%= @character.sex %></td>
-    <td>Height:</td><td><%= h @character.height %></td>
-    <td>Weight:</td><td><%= h @character.weight %></td>
-  </tr>
-</table>
+    <li><label>XP:</label><%= @character.experience_points %></li>
+    <li><label>Race:</label><%= h @character.race.name %></li>
+    <li><label>Size:</label><%= h @character.race.size %></li>
+    <li><label>Gender:</label><%= @character.sex %></li>
+    <li><label>Height:</label><%= h @character.height %></li>
+    <li><label>Weight:</label><%= h @character.weight %></li>
+  </ul>
+</div>
 
 <table id="character_ability_scores">
-  <tr><td>Ability</td><td>Score</td><td>Modifier</td><td>Mod + 1/2 level</td></tr>
+  <tr><th>Ability</th><th>Score</th><th>Modifier</th><th>Mod + 1/2 level</th></tr>
   <tr>
     <td>Str</td>
     <td><%= @character.strength %></td>
@@ -63,26 +64,24 @@
   </tr>
 </table>
 
-<table id="character_defenses">
-  <tr><td colspan="2">Defenses</td></tr>
-  <tr><td colspan="2" class="explanatory_text">WARNING: AC calculation does not respect whether or not character is wearing heavy armor!</td></tr>
-  <tr style="color: red"><td>AC</td><td><%= @character.armor_class %></td></tr>
-  <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
-  <tr><td>Ref</td><td><%= @character.reflex_defense %></td></tr>
-  <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
-</table>
+<div id="character_defenses">
+  <h4>Defenses</h4>
+  <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is wearing heavy armor!</p>
+  <table>
+      <tr style="color: red"><td>AC</td><td><%= @character.armor_class %></td></tr>
+      <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
+      <tr><td>Ref</td><td><%= @character.reflex_defense %></td></tr>
+      <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
+  </table>
+</div>
 
-<table id="character_misc_attributes">
-  <tr><td colspan="2">Misc Attributes</td></tr>
-  <!-- TODO account for armor, etc. in speed -->
-  <tr><td>Speed</td><td><%= @character.race.speed %></td></tr>
-  <tr><td>Initiative</td><td>X</td></tr>
-  <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
-  <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
-  <tr><td>Healing Surge value</td><td><%= @character.healing_surge_value %></td></tr>
-</table>
-
-<div>
-  <%= link_to 'Edit', edit_character_path(@character) %> |
-  <%= link_to 'Back', characters_path %>
+<div id="character_misc_attributes">
+    <h4>Misc Attributes</h4>
+    <table>    
+      <tr><td>Speed</td><td><%= @character.race.speed %></td></tr>
+      <tr><td>Initiative</td><td>X</td></tr>
+      <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
+      <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
+      <tr><td>Healing Surge value</td><td><%= @character.healing_surge_value %></td></tr>
+    </table>
 </div>

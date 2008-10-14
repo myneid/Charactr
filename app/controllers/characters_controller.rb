@@ -21,6 +21,7 @@ class CharactersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @character }
+      format.js { render :json => @character }
     end
   end
 

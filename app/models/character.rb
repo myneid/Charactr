@@ -47,7 +47,7 @@ class Character < ActiveRecord::Base
   end
   
   def initiative_modifier
-    half_level_modifier + dexterity_modifier
+    half_level_modifier + dexterity_modifier + misc_initiative_bonus
   end
 
   # TODO(sholder) theres probably a way to refactor these to reduce duplication

@@ -46,6 +46,8 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal 2, c.initiative_modifier
     c.dexterity = 9    
     assert_equal 0, c.initiative_modifier
+    c.misc_initiative_bonus = 2
+    assert_equal 2, c.initiative_modifier
   end
   
   # TODO update AC calculation to not apply ability mod when wearing heavy armor

@@ -36,6 +36,18 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal(5, c.half_level_modifier)
   end
   
+  def test_initiative_modifier
+    c = Character.new(:dexterity => 10)
+    c.level = 1
+    assert_equal 0, c.initiative_modifier
+    c.level = 2
+    assert_equal 1, c.initiative_modifier
+    c.dexterity = 12    
+    assert_equal 2, c.initiative_modifier
+    c.dexterity = 9    
+    assert_equal 0, c.initiative_modifier
+  end
+  
   # TODO update AC calculation to not apply ability mod when wearing heavy armor
     
   def test_calculate_ac_dex_higher

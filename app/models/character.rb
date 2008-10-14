@@ -45,6 +45,10 @@ class Character < ActiveRecord::Base
   def half_level_modifier
     level / 2
   end
+  
+  def initiative_modifier
+    half_level_modifier + dexterity_modifier
+  end
 
   # TODO(sholder) theres probably a way to refactor these to reduce duplication
   

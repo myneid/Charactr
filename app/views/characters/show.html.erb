@@ -80,18 +80,34 @@
 
 <div id="character_misc_attributes">
     <h4>Misc Attributes</h4>
-    <table>    
+    <table>
+      <tr id="action_points_row">
+        <td>Action Points</td>
+        <td>
+          <span id="current_action_points"><%= @character.current_action_points %></span>
+          <%= link_to_remote "+", 
+              {:update => 'current_action_points', :url => add_action_point_url},
+              :href => add_action_point_url %>
+          <%= link_to_remote "-", 
+              {:update => 'current_action_points', :url => remove_action_point_url},
+              :href => remove_action_point_url %>
+        </td>
+      </tr>
       <tr><td>Speed</td><td><%= @character.race.speed %></td></tr>
       <tr><td>Initiative</td><td><%= @character.initiative_modifier %></td></tr>
       <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
+      <tr><td>Current HP</td><td><%= @character.current_hit_points %></td></tr>
       <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
       <tr><td>Healing Surge value</td><td><%= @character.healing_surge_value %></td></tr>
     </table>
 </div>
+
+<!--
 <div id="character_editable">
   <h4>Editable Fields</h4>
   <table>
-  <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
+    <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
   </table>
 
 </div>
+-->

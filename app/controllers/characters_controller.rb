@@ -84,6 +84,22 @@ class CharactersController < ApplicationController
     end
   end
 
+  # TODO(sholder) really need a test for this
+  def action_point
+    @character = Character.find(params[:id])
+    
+    if 'true' == params[:add]
+      @character.current_action_points += 1
+    else
+      @character.current_action_points -= 1
+    end
+    if @character.save
+      render :text => @character.current_action_points
+    else
+      render :text => 'Failed to save character!'
+    end
+  end
+  
   # DELETE /characters/1
   # DELETE /characters/1.xml
   def destroy

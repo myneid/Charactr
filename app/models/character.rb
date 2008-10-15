@@ -23,6 +23,8 @@ class Character < ActiveRecord::Base
   
   validates_inclusion_of :alignment, :in => ['good', 'lawful good', 'unaligned', 'evil', 'chaotic evil']
   validates_inclusion_of :sex, :in => ['male', 'female']
+  # if a PC has > 10 action points, something goofy is going on
+  validates_inclusion_of :current_action_points, :in => 0..10
 
   ABILITIES = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
 

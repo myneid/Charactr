@@ -100,19 +100,32 @@ class CharactersController < ApplicationController
     end
   end
   # TODO(sholder) really need a test for this
-  def healing_surge_value
+  def current_surges_remaining
     @character = Character.find(params[:id])
     
     if 'true' == params[:add]
-      @character.healing_surge_value += 1
+      @character.current_surges_remaining += 1
     else
-      @character.healing_surge_value -= 1
+      @character.current_surges_remaining -= 1
     end
     if @character.save
-      render :text => @character.healing_surge_value
+      render :text => @character.current_surges_remaining
     else
       render :text => 'Failed to save character!'
     end
+  end
+  def heal_healing_surge
+  	@character = Character.find(params[:id])
+  	
+  	if @character.current_surges_remaining > 0
+  		@character.current_surges_remaining -= 1
+  		@character.current_hit_points += @character.healing_surge_value
+  		if @character.current_hit_points > @character.max_hit_points
+  			@character.current_hit_points = @character.max_hit_points
+  		end
+  		@character.save
+  	end
+  	render :layout => false
   end
   
   # DELETE /characters/1

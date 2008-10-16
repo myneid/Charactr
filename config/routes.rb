@@ -11,8 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.home ':controller', :controller => 'openids', :action => 'new'
   map.add_action_point 'characters/:id/action_point/add', :controller => 'characters', :action => 'action_point', :add => 'true'
   map.remove_action_point 'characters/:id/action_point/remove', :controller => 'characters', :action => 'action_point', :add => 'false'
-   map.add_healing_surge_value 'characters/:id/healing_surge_value/add', :controller => 'characters', :action => 'healing_surge_value', :add => 'true'
-  map.remove_healing_surge_value 'characters/:id/healing_surge_value/remove', :controller => 'characters', :action => 'healing_surge_value', :add => 'false'
+   map.add_current_surges_remaining 'characters/:id/current_surges_remaining/add', :controller => 'characters', :action => 'current_surges_remaining', :add => 'true'
+  map.remove_current_surges_remaining 'characters/:id/current_surges_remaining/remove', :controller => 'characters', :action => 'current_surges_remaining', :add => 'false'
 
   # The priority is based upon order of creation: first created -> highest priority.
   

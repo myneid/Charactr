@@ -98,16 +98,22 @@
       <tr><td>Initiative</td><td><%= @character.initiative_modifier %></td></tr>
       <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
       <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
+     
       <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
-      <tr><td>Healing Surge value</td><td><span id="healing_surge_value"><%= @character.healing_surge_value %></span>
+      <tr><td>Healing Surge value</td><td><span id="healing_surge_value"><%= @character.healing_surge_value %></span></td></tr>
+
+      <tr><td>Remaining Surges</td><td><span id="current_surges_remaining"><%= @character.current_surges_remaining %></span>
       <%= link_to_remote "+", 
-              {:update => 'healing_surge_value', :url => add_healing_surge_value_url},
-              :href => add_healing_surge_value_url %>
+              {:update => 'current_surges_remaining', :url => add_current_surges_remaining_url},
+              :href => add_current_surges_remaining_url %>
           <%= link_to_remote "-", 
-              {:update => 'healing_surge_value', :url => remove_healing_surge_value_url},
-              :href => remove_healing_surge_value_url %>
+              {:update => 'current_surges_remaining', :url => remove_current_surges_remaining_url},
+              :href => remove_current_surges_remaining_url %>
       
       </td></tr>
+      <tr><td colspan=2><%= link_to_remote "Heal surge amount (+#{@character.healing_surge_value})",
+      	{:url => {:action=>:heal_healing_surge ,:id=>@character.id} } %>
+       </td></tr>
     </table>
 </div>
 <br/>

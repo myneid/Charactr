@@ -1,0 +1,2 @@
+page["character_#{@character.id}_current_hit_points"].replace_html(@character.current_hit_points)
+page["current_surges_remaining"].replace_html(@character.current_surges_remaining)

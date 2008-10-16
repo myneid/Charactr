@@ -99,6 +99,21 @@ class CharactersController < ApplicationController
       render :text => 'Failed to save character!'
     end
   end
+  # TODO(sholder) really need a test for this
+  def healing_surge_value
+    @character = Character.find(params[:id])
+    
+    if 'true' == params[:add]
+      @character.healing_surge_value += 1
+    else
+      @character.healing_surge_value -= 1
+    end
+    if @character.save
+      render :text => @character.healing_surge_value
+    else
+      render :text => 'Failed to save character!'
+    end
+  end
   
   # DELETE /characters/1
   # DELETE /characters/1.xml

@@ -15,12 +15,13 @@
     <li><label>Class:</label><%= h @character.character_class.name %></li>
     <li><label>Alignment:</label><%= @character.alignment %></li>
     <!-- TODO have a quick way to edit XP -->
-    <li><label>XP:</label><%= @character.experience_points %></li>
+    <li><label>XP:</label><%= edit_in_place(@character, :experience_points) %></li>
     <li><label>Race:</label><%= h @character.race.name %></li>
     <li><label>Size:</label><%= h @character.race.size %></li>
     <li><label>Gender:</label><%= @character.sex %></li>
     <li><label>Height:</label><%= h @character.height %></li>
     <li><label>Weight:</label><%= h @character.weight %></li>
+    <li><label>Speed:</label><%= @character.race.speed %></li>
   </ul>
 </div>
 
@@ -65,10 +66,10 @@
     <td><%= @character.charisma_modifier_with_level %></td>
   </tr>
 </table>
-
+<br/>
 <div id="character_defenses">
   <h4>Defenses</h4>
-  <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is wearing heavy armor!</p>
+  <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is <br/>wearing heavy armor!</p>
   <table>
       <tr style="color: red"><td>AC</td><td><%= @character.armor_class %></td></tr>
       <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
@@ -76,7 +77,7 @@
       <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
   </table>
 </div>
-
+<br/>
 
 <div id="character_misc_attributes">
     <h4>Misc Attributes</h4>
@@ -93,20 +94,28 @@
               :href => remove_action_point_url %>
         </td>
       </tr>
-      <tr><td>Speed</td><td><%= @character.race.speed %></td></tr>
+      
       <tr><td>Initiative</td><td><%= @character.initiative_modifier %></td></tr>
       <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
-      <tr><td>Current HP</td><td><%= @character.current_hit_points %></td></tr>
+      <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
       <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
-      <tr><td>Healing Surge value</td><td><%= @character.healing_surge_value %></td></tr>
+      <tr><td>Healing Surge value</td><td><span id="healing_surge_value"><%= @character.healing_surge_value %></span>
+      <%= link_to_remote "+", 
+              {:update => 'healing_surge_value', :url => add_healing_surge_value_url},
+              :href => add_healing_surge_value_url %>
+          <%= link_to_remote "-", 
+              {:update => 'healing_surge_value', :url => remove_healing_surge_value_url},
+              :href => remove_healing_surge_value_url %>
+      
+      </td></tr>
     </table>
 </div>
-
+<br/>
 <!--
 <div id="character_editable">
   <h4>Editable Fields</h4>
   <table>
-    <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
+    <tr><th>Current HP:</th><td> <%= edit_in_place(@character, :current_hit_points) %></td>
   </table>
 
 </div>

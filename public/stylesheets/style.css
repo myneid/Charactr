@@ -10,7 +10,7 @@
 
 #character_ability_scores {
     border: 1px solid black;
-    float: left;
+    //float: left;
 }
 
 #character_defenses {
@@ -19,6 +19,11 @@
 }
 
 #character_misc_attributes {
+  border: 1px solid black;
+  float: right;
+}
+
+#character_editable {
   border: 1px solid black;
   float: left;
 }

@@ -114,17 +114,14 @@ class CharactersController < ApplicationController
       render :text => 'Failed to save character!'
     end
   end
+  
   def heal_healing_surge
   	@character = Character.find(params[:id])
   	
-  	if @character.current_surges_remaining > 0
-  		@character.current_surges_remaining -= 1
-  		@character.current_hit_points += @character.healing_surge_value
-  		if @character.current_hit_points > @character.max_hit_points
-  			@character.current_hit_points = @character.max_hit_points
-  		end
-  		@character.save
-  	end
+  	if @character.heal
+  	  @character.save
+	  end
+	  # TODO(tdecourson) display an error message or something if the heal or save fails
   	render :layout => false
   end
   

@@ -117,12 +117,15 @@
     </table>
 </div>
 <br/>
-<!--
+
 <div id="character_editable">
   <h4>Editable Fields</h4>
   <table>
-    <tr><th>Current HP:</th><td> <%= edit_in_place(@character, :current_hit_points) %></td>
+      <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
+      <tr>
+          <td>Action Points:</td>
+          <td><%= @character.current_action_points %> + -</td>
+      </tr>
   </table>
 
 </div>
--->

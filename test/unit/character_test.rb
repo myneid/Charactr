@@ -50,6 +50,50 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal 2, c.initiative_modifier
   end
   
+  def test_heal
+    c = characters(:flappy)
+    c.current_hit_points = 1
+    c.current_surges_remaining = 1
+    
+    assert c.heal
+    
+    assert_equal(1 + c.healing_surge_value, c.current_hit_points)
+    assert_equal(0, c.current_surges_remaining)
+  end
+
+  def test_heal_with_bonus
+    c = characters(:flappy)
+    c.current_hit_points = 1
+    c.current_surges_remaining = 1
+    
+    assert c.heal(4)
+    
+    assert_equal(1 + 4 + c.healing_surge_value, c.current_hit_points)
+    assert_equal(0, c.current_surges_remaining)
+  end
+  
+  def test_heal_exceeds_max_hp
+    c = characters(:flappy)
+    c.current_hit_points = c.max_hit_points - 1
+    c.current_surges_remaining = 1
+    
+    assert c.heal(10)
+    
+    assert_equal(c.max_hit_points, c.current_hit_points)
+    assert_equal(0, c.current_surges_remaining)
+  end
+  
+  def test_heal_no_healing_surges_remain
+    c = characters(:flappy)
+    c.current_hit_points = 1
+    c.current_surges_remaining = 0
+    
+    assert !c.heal
+    
+    assert_equal(1, c.current_hit_points)
+    assert_equal(0, c.current_surges_remaining)
+  end
+  
   # TODO update AC calculation to not apply ability mod when wearing heavy armor
     
   def test_calculate_ac_dex_higher

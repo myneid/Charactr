@@ -76,6 +76,20 @@ class Character < ActiveRecord::Base
     10 + Character.ability_modifier_for(ability) + half_level_modifier + character_class.fortitude_def_bonus + misc_fortitude_bonus
   end
 
+  # return true if we successfully healed, false otherwise
+  # bonus amount can be used for the d6 bonus from Healing Word, etc.
+  def heal(bonus_amount = 0)
+  	if current_surges_remaining > 0
+  		self.current_surges_remaining = self.current_surges_remaining - 1
+  		self.current_hit_points += (self.healing_surge_value + bonus_amount)
+  		if self.current_hit_points > self.max_hit_points
+  			self.current_hit_points = self.max_hit_points
+  		end
+			return true
+  	end
+  	return false
+  end
+
 end
 
 module Math

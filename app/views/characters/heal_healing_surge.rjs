@@ -1,2 +1,7 @@
 page["character_#{@character.id}_current_hit_points"].replace_html(@character.current_hit_points)
 page["current_surges_remaining"].replace_html(@character.current_surges_remaining)
+page["notice"].replace_html('you healed!')
+page["notice"].show
+page.delay(5) do
+	page.visual_effect "fade" , "notice"
+end

@@ -1,13 +1,9 @@
 
-<!-- TODO display Curr HP -->
-<!-- TODO display a "Heal Me" button -->
-<!-- TODO display a "I took damage!" button -->
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag 'editable' %>
 <div>
   <%= link_to 'Edit', edit_character_path(@character) %> |
   <%= link_to 'Back', characters_path %>
 </div>
+
 <div id="character_attributes">
   <ul>
     <li><label>Name:</label><%= h @character.name %></li>
@@ -112,21 +108,25 @@
               :href => remove_current_surges_remaining_url %>
       
       </td></tr>
-      <tr><td colspan=2><%= link_to_remote "Heal surge amount (+#{@character.healing_surge_value})",
-      	{:url => {:action=>:heal_healing_surge ,:id=>@character.id} } %>
-       </td></tr>
+      <tr id="heal" class="interaction">
+          <td colspan="2">
+            <%= link_to_remote "Heal surge amount (+#{@character.healing_surge_value})",
+      	                        {:url => {:action=>:heal_healing_surge ,:id=>@character.id} } %>
+          </td>
+       </tr>
+       
+       <tr id="damage" class="interaction">
+           <td colspan="2">
+               <a href="#" onclick="$('damage_form').appear({duration: 0.25}); return false;">DAMAG'D!</a>
+               <div id="damage_form" style="display:none;">
+                   <% form_remote_tag :url => damage_path(@character) do %>
+                        <%= text_field_tag 'amount', '', :size => 4 %><%= submit_tag 'Save' %>
+                   <% end %>
+                   <a href="#" class="cancel" onclick="$('damage_form').hide(0.25); return false">[hide]</a>
+               </div>
+           </td>
+       </tr>
+       
     </table>
 </div>
 <br/>
-
-<div id="character_editable">
-  <h4>Editable Fields</h4>
-  <table>
-      <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
-      <tr>
-          <td>Action Points:</td>
-          <td><%= @character.current_action_points %> + -</td>
-      </tr>
-  </table>
-
-</div>

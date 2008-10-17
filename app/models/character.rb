@@ -80,6 +80,9 @@ class Character < ActiveRecord::Base
   # bonus amount can be used for the d6 bonus from Healing Word, etc.
   def heal(bonus_amount = 0)
   	if current_surges_remaining > 0
+  	  if self.current_hit_points < 0
+  	    self.current_hit_points = 0
+	    end
   		self.current_surges_remaining = self.current_surges_remaining - 1
   		self.current_hit_points += (self.healing_surge_value + bonus_amount)
   		if self.current_hit_points > self.max_hit_points

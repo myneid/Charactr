@@ -125,6 +125,17 @@ class CharactersController < ApplicationController
   	render :layout => false
   end
   
+  def damage
+    @character = Character.find(params[:id])
+    
+    @damage = params[:amount].to_i
+    
+    @character.damage(@damage)
+    if @character.save
+      render :layout => false
+    end
+  end
+  
   # DELETE /characters/1
   # DELETE /characters/1.xml
   def destroy

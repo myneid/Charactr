@@ -83,6 +83,17 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal(0, c.current_surges_remaining)
   end
   
+  def test_heal_when_in_negative_hp
+    # should go to 0 first, then apply the healing
+    c = characters(:flappy)
+    c.current_hit_points = -3
+    c.current_surges_remaining = 1
+    
+    assert c.heal
+    
+    assert_equal(c.healing_surge_value, c.current_hit_points)
+  end
+  
   def test_heal_no_healing_surges_remain
     c = characters(:flappy)
     c.current_hit_points = 1

@@ -28,6 +28,18 @@
   float: left;
 }
 
+.interaction a {
+  display: block;
+}
+
+#damage {
+  background-color: #C44D58;
+}
+
+#heal {
+  background-color: #81A7BE;
+}
+
 body {
 	margin-left:auto;
 	margin-right:auto;

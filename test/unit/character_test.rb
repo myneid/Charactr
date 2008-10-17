@@ -94,6 +94,46 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal(0, c.current_surges_remaining)
   end
   
+  def test_take_damage
+    c = characters(:flappy)
+    c.current_hit_points = 15
+    
+    c.damage 5
+    
+    assert_equal(10, c.current_hit_points)
+  end
+  
+  def test_take_damage_temp_hp_absorbs_all
+    c = characters(:flappy)
+    c.current_hit_points = 15
+    c.temp_hit_points = 5
+    
+    c.damage 3
+    
+    assert_equal(2, c.temp_hit_points)
+    assert_equal(15, c.current_hit_points)
+  end
+  
+  def test_take_damge_temp_hp_not_enough
+    c = characters(:flappy)
+    c.current_hit_points = 15
+    c.temp_hit_points = 5
+    
+    c.damage 10
+    
+    assert_equal(0, c.temp_hit_points)
+    assert_equal(10, c.current_hit_points)
+  end
+  
+  def test_take_damge_go_unconcious
+    c = characters(:flappy)
+    c.current_hit_points = 15
+    
+    c.damage 20
+    
+    assert_equal(-5, c.current_hit_points)
+  end
+  
   # TODO update AC calculation to not apply ability mod when wearing heavy armor
     
   def test_calculate_ac_dex_higher

@@ -89,6 +89,15 @@ class Character < ActiveRecord::Base
   	end
   	return false
   end
+  
+  # inflict damage, starting with temp hp
+  def damage(amount)
+    self.temp_hit_points -= amount
+    if self.temp_hit_points < 0
+      self.current_hit_points += self.temp_hit_points
+      self.temp_hit_points = 0
+    end
+  end
 
 end
 

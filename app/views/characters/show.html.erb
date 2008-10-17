@@ -98,6 +98,7 @@
       <tr><td>Initiative</td><td><%= @character.initiative_modifier %></td></tr>
       <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
       <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
+      <tr><td>Temp HP</td><td><%= edit_in_place(@character, :temp_hit_points) %></td></tr>
      
       <tr><td>Healing Surges/day</td><td><%= @character.surges_per_day %></td></tr>
       <tr><td>Healing Surge value</td><td><span id="healing_surge_value"><%= @character.healing_surge_value %></span></td></tr>

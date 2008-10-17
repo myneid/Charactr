@@ -9,19 +9,25 @@
 }
 
 #character_ability_scores {
+    width: 250px;
     border: 1px solid black;
-    //float: left;
+    float: left;
+    text-align: center;
 }
 
 #character_defenses {
-  border: 1px solid black;
-  float: left;
-}
-
-#character_misc_attributes {
+  width: 150px;
   border: 1px solid black;
   float: right;
 }
+
+#character_misc_attributes {
+  width: 250px;
+  border: 1px solid black;
+  float: right;
+  margin-bottom: 15px;
+}
+
 
 #character_editable {
   border: 1px solid black;
@@ -227,7 +233,7 @@ h4 {
 }
 
 div#character_attributes {
-  float: right;
+  float: left;
   width: 200px; 
   background-color: #e6e6e6;
   border: 1px dotted #ccc;

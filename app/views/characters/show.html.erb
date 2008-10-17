@@ -21,60 +21,6 @@
   </ul>
 </div>
 
-<table id="character_ability_scores">
-  <tr><th>Ability</th><th>Score</th><th>Modifier</th><th>Mod + 1/2 level</th></tr>
-  <tr>
-    <td>Str</td>
-    <td><%= @character.strength %></td>
-    <td><%= @character.strength_modifier %></td>
-    <td><%= @character.strength_modifier_with_level %></td>
-  </tr>
-  <tr>
-    <td>Con</td>
-    <td><%= @character.constitution %></td>
-    <td><%= @character.constitution_modifier %></td>
-    <td><%= @character.constitution_modifier_with_level %></td>    
-  </tr>
-  <tr class="separator"><td colspan="3"></td></tr>
-  <tr>
-    <td>Dex</td>
-    <td><%= @character.dexterity %></td>
-    <td><%= @character.dexterity_modifier %></td>
-    <td><%= @character.dexterity_modifier_with_level %></td>
-  </tr>
-  <tr>
-    <td>Int</td>
-    <td><%= @character.intelligence %></td>
-    <td><%= @character.intelligence_modifier %></td>
-    <td><%= @character.intelligence_modifier_with_level %></td>
-  </tr>
-  <tr class="separator"><td colspan="2"></td></tr>
-  <tr>
-    <td>Wis</td>
-    <td><%= @character.wisdom %></td>
-    <td><%= @character.wisdom_modifier %></td>
-    <td><%= @character.wisdom_modifier_with_level %></td>
-  </tr>
-  <tr>
-    <td>Cha</td>
-    <td><%= @character.charisma %></td>
-    <td><%= @character.charisma_modifier %></td>
-    <td><%= @character.charisma_modifier_with_level %></td>
-  </tr>
-</table>
-<br/>
-<div id="character_defenses">
-  <h4>Defenses</h4>
-  <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is <br/>wearing heavy armor!</p>
-  <table>
-      <tr style="color: red"><td>AC</td><td><%= @character.armor_class %></td></tr>
-      <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
-      <tr><td>Ref</td><td><%= @character.reflex_defense %></td></tr>
-      <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
-  </table>
-</div>
-<br/>
-
 <div id="character_misc_attributes">
     <h4>Misc Attributes</h4>
     <table>
@@ -129,4 +75,60 @@
        
     </table>
 </div>
+
+<table id="character_ability_scores">
+  <tr><th>Ability</th><th>Score</th><th>Modifier</th><th>Mod + 1/2 level</th></tr>
+  <tr>
+    <td>Str</td>
+    <td><%= @character.strength %></td>
+    <td><%= @character.strength_modifier %></td>
+    <td><%= @character.strength_modifier_with_level %></td>
+  </tr>
+  <tr>
+    <td>Con</td>
+    <td><%= @character.constitution %></td>
+    <td><%= @character.constitution_modifier %></td>
+    <td><%= @character.constitution_modifier_with_level %></td>    
+  </tr>
+  <tr class="separator"><td colspan="3"></td></tr>
+  <tr>
+    <td>Dex</td>
+    <td><%= @character.dexterity %></td>
+    <td><%= @character.dexterity_modifier %></td>
+    <td><%= @character.dexterity_modifier_with_level %></td>
+  </tr>
+  <tr>
+    <td>Int</td>
+    <td><%= @character.intelligence %></td>
+    <td><%= @character.intelligence_modifier %></td>
+    <td><%= @character.intelligence_modifier_with_level %></td>
+  </tr>
+  <tr class="separator"><td colspan="2"></td></tr>
+  <tr>
+    <td>Wis</td>
+    <td><%= @character.wisdom %></td>
+    <td><%= @character.wisdom_modifier %></td>
+    <td><%= @character.wisdom_modifier_with_level %></td>
+  </tr>
+  <tr>
+    <td>Cha</td>
+    <td><%= @character.charisma %></td>
+    <td><%= @character.charisma_modifier %></td>
+    <td><%= @character.charisma_modifier_with_level %></td>
+  </tr>
+</table>
+<br/>
+<div id="character_defenses">
+  <h4>Defenses</h4>
+  <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is <br/>wearing heavy armor!</p>
+  <table>
+      <tr style="color: red"><td>AC</td><td><%= @character.armor_class %></td></tr>
+      <tr><td>Fort</td><td><%= @character.fortitude_defense %></td></tr>
+      <tr><td>Ref</td><td><%= @character.reflex_defense %></td></tr>
+      <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
+  </table>
+</div>
+<br/>
+
+
 <br/>

@@ -27,7 +27,7 @@
 
 
 
-<div id="character_misc_attributes">
+<div class="wrappable" id="character_misc_attributes">
     <h4>Misc Attributes</h4>
     <table>
       <tr id="action_points_row">
@@ -83,7 +83,7 @@
     </table>
 </div>
 
-<table id="character_ability_scores">
+<table class="wrappable" id="character_ability_scores">
   <tr><th>Ability</th><th>Score</th><th>Modifier</th><th>Mod + 1/2 level</th></tr>
   <tr>
     <td>Str</td>
@@ -124,8 +124,8 @@
     <td><%= @character.charisma_modifier_with_level %></td>
   </tr>
 </table>
-<br/>
-<div id="character_defenses">
+<br class="clearout" />
+<div class="wrappable" id="character_defenses">
   <h4>Defenses</h4>
   <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is <br/>wearing heavy armor!</p>
   <table>
@@ -136,7 +136,7 @@
   </table>
 </div>
 
-<table id="character_skills">
+<table class="wrappable" id="character_skills">
   <tr>
     <td>Bonus</td>
     <td>Skill</td>

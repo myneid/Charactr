@@ -54,11 +54,11 @@
 
       <tr><td>Remaining Surges</td><td><span id="current_surges_remaining"><%= @character.current_surges_remaining %></span>
       <%= link_to_remote "+", 
-              {:update => 'current_surges_remaining', :url => add_current_surges_remaining_url},
-              :href => add_current_surges_remaining_url %>
+              {:update => 'current_surges_remaining', :url => add_character_surge_url(@character)},
+              :href => add_character_surge_url(@character) %>
           <%= link_to_remote "-", 
-              {:update => 'current_surges_remaining', :url => remove_current_surges_remaining_url},
-              :href => remove_current_surges_remaining_url %>
+              {:update => 'current_surges_remaining', :url => remove_character_surge_url(@character)},
+              :href => remove_character_surge_url(@character) %>
       
       </td></tr>
       <tr id="heal" class="interaction">

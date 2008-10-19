@@ -82,21 +82,6 @@ class CharactersController < ApplicationController
       end
     end
   end
-
-  # TODO(sholder) really need a test for this
-  def current_surges_remaining
-    
-    if 'true' == params[:add]
-      @character.current_surges_remaining += 1
-    else
-      @character.current_surges_remaining -= 1
-    end
-    if @character.save
-      render :text => @character.current_surges_remaining
-    else
-      render :text => 'Failed to save character!'
-    end
-  end
   
   def heal_healing_surge
   	

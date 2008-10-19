@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :characters do |c|
     c.resource :action_point,  :member => {:add => :post, :remove => :post }
-    
+    c.resource :surge,  :member => {:add => :post, :remove => :post }
   end
 
   map.resource :openid, :member => {:complete => :get}
@@ -13,8 +13,6 @@ ActionController::Routing::Routes.draw do |map|
   map.login ':controller/:action', :controller => 'openids', :action => 'new'
   map.home ':controller', :controller => 'openids', :action => 'new'
 
-  map.add_current_surges_remaining 'characters/:id/current_surges_remaining/add', :controller => 'characters', :action => 'current_surges_remaining', :add => 'true'
-  map.remove_current_surges_remaining 'characters/:id/current_surges_remaining/remove', :controller => 'characters', :action => 'current_surges_remaining', :add => 'false'
   map.damage 'characters/:id/damage', :controller => 'characters', :action => 'damage'
 
   # The priority is based upon order of creation: first created -> highest priority.

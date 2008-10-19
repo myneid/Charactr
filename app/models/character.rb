@@ -21,6 +21,7 @@ class Character < ActiveRecord::Base
   validates_presence_of :intelligence
   validates_presence_of :wisdom
   validates_presence_of :charisma
+  validates_presence_of :campaign_id
   
   validates_inclusion_of :alignment, :in => ['good', 'lawful good', 'unaligned', 'evil', 'chaotic evil']
   validates_inclusion_of :sex, :in => ['male', 'female']

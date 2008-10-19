@@ -73,7 +73,7 @@
                <a href="#" onclick="$('damage_form').appear({duration: 0.25}); return false;">DAMAG'D!</a>
                <div id="damage_form" style="display:none;">
                    <% form_remote_tag :url => damage_path(@character) do %>
-                        <%= text_field_tag 'amount', '', :size => 4 %><%= submit_tag 'Save' %>
+                        <%= text_field_tag 'amount', '', :size => 4 %><%= submit_tag 'HIT ME!' %>
                    <% end %>
                    <a href="#" class="cancel" onclick="$('damage_form').hide(0.25); return false">[hide]</a>
                </div>

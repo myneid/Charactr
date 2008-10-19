@@ -17,7 +17,8 @@ class CharactersController < ApplicationController
   # GET /characters/1.xml
   def show
     @character = Character.find(params[:id])
-
+    @skills = Skill.find(:all, :order => 'name')
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @character }

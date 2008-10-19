@@ -13,12 +13,14 @@
     border: 1px solid black;
     float: left;
     text-align: center;
+    margin-bottom: 25px;
 }
 
 #character_defenses {
   width: 150px;
   border: 1px solid black;
   float: right;
+  margin-bottom: 25px;
 }
 
 #character_misc_attributes {
@@ -28,10 +30,16 @@
   margin-bottom: 15px;
 }
 
-
 #character_editable {
   border: 1px solid black;
   float: left;
+}
+
+#character_skills {
+    border: 1px solid black;
+    text-align: center;
+    width: 200px;
+    float: left;
 }
 
 .interaction a {

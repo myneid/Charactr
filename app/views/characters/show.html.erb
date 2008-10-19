@@ -38,6 +38,7 @@
       </tr>
       
       <tr><td>Initiative</td><td><%= @character.initiative_modifier %></td></tr>
+      <tr><td>Armor Check Penalty</td><td><%= @character.armor_check_penalty %></td></tr>
       <tr><td>Max HP</td><td><%= @character.max_hit_points %></td></tr>
       <tr><td>Current HP</td><td><%= edit_in_place(@character, :current_hit_points) %></td></tr>
       <tr><td>Temp HP</td><td><%= edit_in_place(@character, :temp_hit_points) %></td></tr>
@@ -128,6 +129,22 @@
       <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
   </table>
 </div>
+
+<table id="character_skills">
+  <tr>
+    <td>Bonus</td>
+    <td>Skill</td>
+    <td>Armor Penalty?</td>
+  </tr>
+  <% @skills.each do |s| %>
+  <tr>
+    <td><%= @character.total_skill_bonus s %></td>
+    <td><%= h s.name %></td>
+    <td><%= s.subject_to_armor_check_penalty? ? 'X' : '' %></td>
+  </tr>
+  <% end %>
+</table>
+
 <br/>
 
 

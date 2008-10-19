@@ -190,4 +190,34 @@ class CharacterTest < ActiveSupport::TestCase
   
   # TODO tests for calculating initiative, etc.
 
+  def test_skill_bonus_no_modifiers
+    c = characters(:flappy)
+    assert_equal(0, c.total_skill_bonus(skills(:endurance)))
+  end
+  
+  def test_skill_bonus_trained
+    c = characters(:flappy)
+    assert_equal(7, c.total_skill_bonus(skills(:bluff)))
+  end
+  
+  def test_skill_bonus_misc_modifier
+    c = characters(:izzard)
+    assert_equal(3, c.total_skill_bonus(skills(:endurance)))
+  end
+  
+  def test_skill_bonus_armor_check_penalty
+    c = characters(:flappy)
+    c.armor_check_penalty = -1
+    assert_equal(-1, c.total_skill_bonus(skills(:endurance)))
+  end
+
+  def test_skill_bonus_trained_and_armor_check_penalty
+    c = characters(:flappy)
+    c.armor_check_penalty = -1
+    s = skills(:bluff)
+    #bluff isn't really subject to ACP, but we'll fake it for this test
+    s.subject_to_armor_check_penalty = true
+    assert_equal(6, c.total_skill_bonus(s))
+  end
+  
 end

@@ -4,6 +4,7 @@ class Character < ActiveRecord::Base
   belongs_to :campaign
   belongs_to :character_class
   belongs_to :race
+  has_many :character_skills, :include => :skill
 
   validates_presence_of :name
   validates_presence_of :experience_points
@@ -100,6 +101,25 @@ class Character < ActiveRecord::Base
       self.current_hit_points += self.temp_hit_points
       self.temp_hit_points = 0
     end
+  end
+  
+  def total_skill_bonus(skill)
+    #ugh... this ended up getting messier than I would have liked, and has
+    #some duplication w/ CharacterSkill.  any ideas on how to refactor?
+    character_skill = character_skills.detect {|cs| cs.skill == skill}
+    
+    if character_skill.nil?    
+      skill_modifier_method = "#{skill.key_ability.downcase}_modifier_with_level"
+      base_bonus = send(skill_modifier_method.to_sym)
+    else
+      base_bonus = character_skill.total_bonus
+    end
+    
+    if skill.subject_to_armor_check_penalty?
+      base_bonus += self.armor_check_penalty
+    end
+    
+    base_bonus
   end
 
 end

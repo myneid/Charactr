@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081017030305) do
+ActiveRecord::Schema.define(:version => 20081019170015) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name",               :null => false
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20081017030305) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "temp_hit_points",          :default => 0,           :null => false
+    t.integer  "armor_check_penalty",      :default => 0,           :null => false
   end
 
   create_table "feats", :force => true do |t|
@@ -97,10 +98,11 @@ ActiveRecord::Schema.define(:version => 20081017030305) do
   end
 
   create_table "skills", :force => true do |t|
-    t.string   "name",        :null => false
-    t.string   "key_ability", :null => false
+    t.string   "name",                                              :null => false
+    t.string   "key_ability",                                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "subject_to_armor_check_penalty", :default => false, :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -1,7 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+flappy_bluff:
+    character: flappy
+    skill: bluff
+    trained: true
+
+izzard_endurance:
+    character: izzard
+    skill: endurance
+    trained: false
+    misc_bonus: 1
+    misc_bonus_description: An arbitrary bonus    

@@ -181,6 +181,22 @@ div.side_header h1 {
 div.side_content {
 	background-color:#EEE;
 }
+
+  div.side_content ul {
+    list-style-type:none;
+    padding:2px;
+    font-size: 0.9em;
+  }
+
+  div.side_content label {
+    width: 60px;
+    display: block;
+    font-weight: bold;
+    padding-right: 2px;
+    float: left;
+    text-align: right;
+  }
+
 div.spacer { 
 	height:15px;
 }
@@ -238,25 +254,4 @@ div#footer p a {
 h4 {
   margin: 0px;
   padding: 0px;
-}
-
-div#character_attributes {
-  float: left;
-  width: 200px; 
-  background-color: #e6e6e6;
-  border: 1px dotted #ccc;
-}
-
-div#character_attributes ul {
-  list-style-type:none;
-  padding:2px;
-}
-
-div#character_attributes label {
-  width: 60px;
-  display: block;
-  font-weight: bold;
-  padding-right: 2px;
-  float: left;
-  text-align: right;
 }

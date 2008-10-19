@@ -1,25 +1,31 @@
+<% content_for(:sidebar) do %>
+	<div class="side_header headtext">
+		<h1>Vitals</h1>
+	</div>
+    <div class="side_content area">
+      <ul>
+        <li><label>Name:</label><%= h @character.name %></li>
+        <li><label>Lvl:</label><%= @character.level %></li>
+        <li><label>Class:</label><%= h @character.character_class.name %></li>
+        <li><label>Aligned:</label><%= @character.alignment %></li>
+        <!-- TODO have a quick way to edit XP -->
+        <li><label>XP:</label><%= edit_in_place(@character, :experience_points) %></li>
+        <li><label>Race:</label><%= h @character.race.name %></li>
+        <li><label>Size:</label><%= h @character.race.size %></li>
+        <li><label>Gender:</label><%= @character.sex %></li>
+        <li><label>Height:</label><%= h @character.height %></li>
+        <li><label>Weight:</label><%= h @character.weight %></li>
+        <li><label>Speed:</label><%= @character.race.speed %></li>
+      </ul>
+    </div>
+<% end %>
 
 <div>
   <%= link_to 'Edit', edit_character_path(@character) %> |
   <%= link_to 'Back', characters_path %>
 </div>
 
-<div id="character_attributes">
-  <ul>
-    <li><label>Name:</label><%= h @character.name %></li>
-    <li><label>Lvl:</label><%= @character.level %></li>
-    <li><label>Class:</label><%= h @character.character_class.name %></li>
-    <li><label>Alignment:</label><%= @character.alignment %></li>
-    <!-- TODO have a quick way to edit XP -->
-    <li><label>XP:</label><%= edit_in_place(@character, :experience_points) %></li>
-    <li><label>Race:</label><%= h @character.race.name %></li>
-    <li><label>Size:</label><%= h @character.race.size %></li>
-    <li><label>Gender:</label><%= @character.sex %></li>
-    <li><label>Height:</label><%= h @character.height %></li>
-    <li><label>Weight:</label><%= h @character.weight %></li>
-    <li><label>Speed:</label><%= @character.race.speed %></li>
-  </ul>
-</div>
+
 
 <div id="character_misc_attributes">
     <h4>Misc Attributes</h4>
@@ -145,7 +151,6 @@
   <% end %>
 </table>
 
-<br/>
 
 
 <br/>

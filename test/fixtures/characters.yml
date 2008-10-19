@@ -22,6 +22,7 @@ flappy:
     wisdom: 8
     charisma: 14
     misc_reflex_bonus: 1
+    sex: male
     
 izzard:
     campaign: pnp

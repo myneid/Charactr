@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
   
   before_filter :ensure_user_valid
+  before_filter :load_character, :except => [:index, :new, :create]
   
   # GET /characters
   # GET /characters.xml
@@ -16,7 +17,6 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.xml
   def show
-    @character = Character.find(params[:id])
     @skills = Skill.find(:all, :order => 'name')
     
     respond_to do |format|
@@ -71,8 +71,6 @@ class CharactersController < ApplicationController
   # PUT /characters/1
   # PUT /characters/1.xml
   def update
-    @character = Character.find(params[:id])
-
     respond_to do |format|
       if @character.update_attributes(params[:character])
         flash[:notice] = 'Character was successfully updated.'
@@ -87,7 +85,6 @@ class CharactersController < ApplicationController
 
   # TODO(sholder) really need a test for this
   def current_surges_remaining
-    @character = Character.find(params[:id])
     
     if 'true' == params[:add]
       @character.current_surges_remaining += 1
@@ -102,7 +99,6 @@ class CharactersController < ApplicationController
   end
   
   def heal_healing_surge
-  	@character = Character.find(params[:id])
   	
   	if @character.heal
   	  @character.save
@@ -111,9 +107,7 @@ class CharactersController < ApplicationController
   	render :layout => false
   end
   
-  def damage
-    @character = Character.find(params[:id])
-    
+  def damage    
     @damage = params[:amount].to_i
     
     @character.damage(@damage)
@@ -125,7 +119,6 @@ class CharactersController < ApplicationController
   # DELETE /characters/1
   # DELETE /characters/1.xml
   def destroy
-    @character = Character.find(params[:id])
     @character.destroy
 
     respond_to do |format|
@@ -133,4 +126,10 @@ class CharactersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  
+    def load_character
+      @character = Character.find(params[:id])
+    end
 end

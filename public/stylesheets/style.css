@@ -244,6 +244,35 @@ div#footer p a {
 	color:#999;
 }
 
+/* Skill display stuff */
+
+.skill_is_trained {
+  color:#18CB1B;
+}
+
+td.skill_bonus {
+  width: 45px;
+}
+
+td.skill_name {
+  width: 105px;
+}
+
+td.skill_trained {
+  width: 45px;
+}
+
+td.skill_misc_bonus {
+  width: 105px;
+}
+
+td.skill_misc_bonus_description {
+  width: 75px;
+}
+
+td.skill_submit {
+  width: 35px;
+}
 /* ADDED BY JDUNPHY */
 
 .flash-notice {

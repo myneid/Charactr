@@ -2,18 +2,37 @@
 
 <% form_for(@character) do |f| %>
   <%= f.error_messages %>
-<%= render :partial=>"form_characterheader", :locals => { :f => f } %>
+  <%= render :partial=>"form_characterheader", :locals => { :f => f } %>
   
-<%= render :partial=>"form_abilities", :locals => { :f => f } %>
+  <%= render :partial=>"form_abilities", :locals => { :f => f } %>
   
- <%= render :partial=>"form_defences", :locals => { :f => f } %>
+  <%= render :partial=>"form_defences", :locals => { :f => f } %>
   
- <%= render :partial=>"form_attributes", :locals => { :f => f } %>
+  <%= render :partial=>"form_attributes", :locals => { :f => f } %>
 
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
+
+<div>
+    <table>
+        <tr>
+            <td class="skill_bonus">Bonus</td>
+            <td class="skill_name">Skill</td>
+            <td class="skill_trained">Trained?</td>
+            <td class="skill_misc_bonus">Misc Bonus</td>
+            <td class="skill_misc_bonus_description">Misc Bonus Description</td>
+        </td>
+    </table>
+
+    <% @skills.each do |skill| %>
+        <% cs = @character.character_skill_for(skill) %>
+        <%= render :partial => 'form_skill', :locals => {:skill => skill, :cs => cs } %>
+    <% end %>
+</div>
+
+
 
 <%= link_to 'Show', @character %> |
 <%= link_to 'Back', characters_path %>

@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :characters do |c|
     c.resource :action_point,  :member => {:add => :post, :remove => :post }
     c.resource :surge,  :member => {:add => :post, :remove => :post }
+    c.resources :character_skills, :member => {:create => :post, :update => :put}
   end
 
   map.resource :openid, :member => {:complete => :get}

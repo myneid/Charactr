@@ -1,0 +1,16 @@
+<% remote_form_for [@character, cs], :html => {:id => "character_skill_#{skill.id}_form"} do |f| %>
+<table id="character_skill_<%= skill.id %>">
+    <tr>
+        <td class="skill_bonus"><%= @character.total_skill_bonus skill %></td>
+        <td class="skill_name"><%= h skill.name %></td>
+        <td class="skill_trained"><%= f.check_box :trained %></td>
+        <td class="skill_misc_bonus"><%= f.text_field :misc_bonus, :size => 3 %></td>
+        <td class="skil_misc_bonus_description"><%= f.text_field :misc_bonus_description, :size => 15 %></td>
+        <td class="skill_submit">
+            <%= f.hidden_field :skill_id %>
+            <%= f.error_messages %>
+            <%= f.submit 'Save' %>
+        </td>
+    </tr>
+</table>
+<% end %>

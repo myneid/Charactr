@@ -122,7 +122,20 @@ class Character < ActiveRecord::Base
     
     base_bonus
   end
+  
+  def character_skill_for(skill)
+    character_skill = character_skills.detect {|cs| cs.skill == skill}
+    return character_skill.nil? ? CharacterSkill.new(:character => self, :skill => skill) : character_skill
+  end
 
+  def trained?(skill)
+    character_skill = character_skills.detect {|cs| cs.skill == skill}
+    if character_skill
+      return character_skill.trained?
+    else
+      return false
+    end
+  end
 end
 
 module Math

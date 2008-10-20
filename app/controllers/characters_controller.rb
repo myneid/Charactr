@@ -17,7 +17,7 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.xml
   def show
-    @skills = Skill.find(:all, :order => 'name')
+    @skills = Skill.ordered
     
     respond_to do |format|
       format.html # show.html.erb
@@ -40,6 +40,7 @@ class CharactersController < ApplicationController
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
+    @skills = Skill.ordered
   end
 
   # POST /characters

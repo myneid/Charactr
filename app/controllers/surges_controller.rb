@@ -19,9 +19,4 @@ class SurgesController < ApplicationController
     end    
   end
 
-  protected
-
-    def load_character
-      @character = Character.find(params[:character_id])
-    end
 end

@@ -220,4 +220,20 @@ class CharacterTest < ActiveSupport::TestCase
     assert_equal(6, c.total_skill_bonus(s))
   end
   
+  def test_character_skill_for_new_skill
+    c = characters(:flappy)
+    cs = c.character_skill_for(skills(:endurance))
+    assert_equal(c, cs.character)
+    assert_equal(skills(:endurance), cs.skill)
+    assert cs.new_record?
+  end
+  
+  def test_character_skill_for_existing_skill
+    c = characters(:flappy)
+    cs = c.character_skill_for(skills(:bluff))
+    assert_equal(c, cs.character)
+    assert_equal(skills(:bluff), cs.skill)
+    assert !cs.new_record?
+  end
+  
 end

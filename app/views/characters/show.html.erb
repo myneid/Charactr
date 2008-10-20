@@ -145,7 +145,7 @@
   <% @skills.each do |s| %>
   <tr>
     <td><%= @character.total_skill_bonus s %></td>
-    <td><%= h s.name %></td>
+    <td <%= @character.trained?(s) ? 'class="skill_is_trained"' : '' %>><%= h s.name %></td>
     <td><%= s.subject_to_armor_check_penalty? ? 'X' : '' %></td>
   </tr>
   <% end %>

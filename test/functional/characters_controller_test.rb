@@ -69,6 +69,8 @@ class CharactersControllerTest < ActionController::TestCase
   def test_should_get_edit
     get :edit, :id => characters(:flappy).id
     assert_response :success
+    assert_equal(characters(:flappy), assigns(:character))
+    assert_not_nil(assigns(:skills))
   end
 
   def test_should_update_character

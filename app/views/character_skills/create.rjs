@@ -1,0 +1,6 @@
+page["character_skill_#{@character_skill.skill.id}"].replace_html(render :partial => 'characters/form_skill', :locals => {:skill => @character_skill.skill, :cs => @character_skill })
+page["flash"].replace_html(@message)
+page["flash"].show
+page.delay(5) do
+	page.visual_effect "fade" , "flash"
+end

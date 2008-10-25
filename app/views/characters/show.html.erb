@@ -151,6 +151,23 @@
   <% end %>
 </table>
 
+<br class="clearout" />
 
+<table class="wrappable" id="character_feats">
+    <tr><td colspan="3">Feats</td></tr>
+    <tr>
+        <td>Name</td><td>Gained at Lvl</td><td>Description</td>
+        <% @character.feats.each do |feat| %>
+            <tr>
+                <td><%= h feat.name %></td>
+                <td><%= feat.level_gained_at %></td>
+                <td><%= h feat.description %></td>
+                <td><%= link_to '[edit]', edit_character_feat_path(@character, feat) %> <%= link_to '[destroy]', destroy_character_feat_path(@character, feat), :confirm => 'Are you sure?', :method => :delete %></td>
+            </tr>
+        <% end %>
+        <tr>
+            <td colspan="3"><%= link_to "Add a new feat...", new_character_feat_path(@character) %>
+        </tr>
+</table>
 
 <br/>

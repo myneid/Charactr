@@ -1,0 +1,16 @@
+<h1>Add A Feat</h1>
+
+<% form_for([@character, @feat]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+      Name: <%= f.text_field :name, :size => 20 %> <br/>
+      Gained at level: <%= f.text_field :level_gained_at, :size => 2 %> <br/>
+      Description: <%= f.text_area :description %> <br/>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', feats_path %>

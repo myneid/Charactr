@@ -1,0 +1,5 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+flappy_found_note:
+  character: flappy
+  details: We found a note talking about some guy named Kalarel

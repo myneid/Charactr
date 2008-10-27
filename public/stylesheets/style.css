@@ -21,6 +21,28 @@
   margin-bottom: 15px;
 }
 
+#character_feats {
+  width: 475px;
+}
+
+#character_feats .edit_links {
+  width: 20%;
+  text-align: right;
+}
+
+#character_notes {
+  width: 475px;
+}
+
+#character_notes td {
+  width: 80%;
+}
+
+#character_notes td.edit_links {
+  width: 20%;
+  text-align: right;
+}
+
 br.clearout {
   clear:both;
 }

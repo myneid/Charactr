@@ -162,12 +162,27 @@
                 <td><%= h feat.name %></td>
                 <td><%= feat.level_gained_at %></td>
                 <td><%= h feat.description %></td>
-                <td><%= link_to '[edit]', edit_character_feat_path(@character, feat) %> <%= link_to '[destroy]', destroy_character_feat_path(@character, feat), :confirm => 'Are you sure?', :method => :delete %></td>
+                <td class="edit_links"><%= link_to '[edit]', edit_character_feat_path(@character, feat) %> <%= link_to '[destroy]', destroy_character_feat_path(@character, feat), :confirm => 'Are you sure?', :method => :delete %></td>
             </tr>
         <% end %>
         <tr>
             <td colspan="3"><%= link_to "Add a new feat...", new_character_feat_path(@character) %>
         </tr>
+</table>
+
+<br class="clearout" />
+
+<table class="wrappable" id="character_notes">
+    <tr><td colspan="2">Notes</td></tr>
+    <% @character.notes.each do |note| %>
+        <tr>
+            <td><%= h note.details %></td>
+            <td class="edit_links"><%= link_to '[edit]', edit_character_note_path(@character, note) %> <%= link_to '[destroy]', destroy_character_note_path(@character, note), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+    <tr>
+        <td colspan="2"><%= link_to "Add a new note...", new_character_note_path(@character) %>
+    </tr>
 </table>
 
 <br/>

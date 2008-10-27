@@ -6,6 +6,7 @@ class Character < ActiveRecord::Base
   belongs_to :race
   has_many :character_skills, :include => :skill
   has_many :feats
+  has_many :notes
 
   validates_presence_of :name
   validates_presence_of :experience_points

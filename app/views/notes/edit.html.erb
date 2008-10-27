@@ -1,0 +1,14 @@
+<h1>Editing note</h1>
+
+<% form_for([@character, @note]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+      <%= f.text_area :details %> <br/>
+  </p>
+  <p>
+      <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', character_path(@character) %>

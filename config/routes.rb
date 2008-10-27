@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :feats
 
   map.resources :campaigns
@@ -10,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
     c.resource :surge,  :member => {:add => :post, :remove => :post }
     c.resources :character_skills, :member => {:create => :post, :update => :put}
     c.resources :feats, :member => {:add => :post, :destroy => :delete, :update => :put}
+    c.resources :notes, :member => {:add => :post, :destroy => :delete, :update => :put}
   end
 
   map.resource :openid, :member => {:complete => :get}

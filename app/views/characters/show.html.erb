@@ -124,7 +124,7 @@
     <td><%= @character.charisma_modifier_with_level %></td>
   </tr>
 </table>
-<br class="clearout" />
+
 <div class="wrappable" id="character_defenses">
   <h4>Defenses</h4>
   <p class="explanatory_text">WARNING: AC calculation does not respect whether or not character is <br/>wearing heavy armor!</p>
@@ -135,6 +135,9 @@
       <tr><td>Will</td><td><%= @character.will_defense %></td></tr>  
   </table>
 </div>
+
+
+<br class="clearout" />
 
 <table class="wrappable" id="character_skills">
   <tr>
@@ -150,8 +153,6 @@
   </tr>
   <% end %>
 </table>
-
-<br class="clearout" />
 
 <table class="wrappable" id="character_feats">
     <tr><td colspan="3">Feats</td></tr>
@@ -169,8 +170,6 @@
             <td colspan="3"><%= link_to "Add a new feat...", new_character_feat_path(@character) %>
         </tr>
 </table>
-
-<br class="clearout" />
 
 <table class="wrappable" id="character_notes">
     <tr><td colspan="2">Notes</td></tr>

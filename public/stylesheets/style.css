@@ -22,7 +22,7 @@
 }
 
 #character_feats {
-  width: 475px;
+  width: 415px;
 }
 
 #character_feats .edit_links {
@@ -31,7 +31,7 @@
 }
 
 #character_notes {
-  width: 475px;
+  width: 415px;
 }
 
 #character_notes td {
@@ -50,7 +50,7 @@ br.clearout {
 .wrappable {
   border: 1px solid black;
   margin: 5px;
-  width: 230px;
+  width: 200px;
   float: left;
 }
 
@@ -130,7 +130,7 @@ code {
 div#wrap {
 	padding:20px 0 0 0;
 	margin:0 auto;
-	width:700px;
+	width:900px;
 }
 div#header {
 	width:100%;
@@ -177,7 +177,7 @@ div#nav ul li a:hover {
 	color:#C44D58;
 }
 div#main {
-	width:500px;
+	width:700px;
 	float:right;
 }
 div#sidebar {

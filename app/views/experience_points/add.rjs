@@ -1,0 +1,2 @@
+page["character_#{@character.id}_experience_points"].replace_html(@character.experience_points)
+page["add_experience_form"].hide

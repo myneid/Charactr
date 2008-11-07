@@ -85,8 +85,8 @@ class CharactersController < ApplicationController
   end
   
   def heal_healing_surge
-  	
-  	if @character.heal
+  	@eh = params[:extra_heal].to_i
+  	if @character.heal(@eh)
   	  @character.save
 	  end
 	  # TODO(tdecourson) display an error message or something if the heal or save fails

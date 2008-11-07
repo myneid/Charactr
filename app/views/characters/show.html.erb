@@ -75,8 +75,10 @@
       </td></tr>
       <tr id="heal" class="interaction">
           <td colspan="2">
-            <%= link_to_remote "Heal surge amount (+#{@character.healing_surge_value})",
-      	                        {:url => {:action=>:heal_healing_surge ,:id=>@character.id} } %>
+       	                       <div id="healing_surge_form">
+       	                       <%= link_to_remote("Heal Healing Surge (+#{@character.healing_surge_value})", {:submit=>'healing_surge_form', :url => {:action=>:heal_healing_surge ,:id=>@character.id}}) %>+<%= text_field_tag 'extra_heal', '', :size=>2%>(extra heal)
+      	                       </div>
+      	                        
           </td>
        </tr>
        

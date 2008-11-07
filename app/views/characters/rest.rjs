@@ -1,0 +1,4 @@
+page["character_#{@character.id}_current_hit_points"].replace_html(@character.current_hit_points)
+page["character_#{@character.id}_temp_hit_points"].replace_html(@character.temp_hit_points)
+page["current_action_points"].replace_html(@character.current_action_points)
+page["current_surges_remaining"].replace_html(@character.current_surges_remaining)

@@ -9,7 +9,19 @@
         <li><label>Class:</label><%= h @character.character_class.name %></li>
         <li><label>Aligned:</label><%= @character.alignment %></li>
         <!-- TODO have a quick way to edit XP -->
-        <li><label>XP:</label><%= edit_in_place(@character, :experience_points) %></li>
+        <li><label>XP:</label><%= edit_in_place(@character, :experience_points) %>
+        <a href="#" onclick="$('add_experience_form').appear({duration: 0.25}); return false;">[+]</a>
+               <div id="add_experience_form" style="display:none;">
+                   <% form_remote_tag :url => add_character_experience_point_url(@character) do %>
+                        <%= text_field_tag 'newexp', '', :size => 4 %><%= submit_tag 'Power Upz' %>
+                   <% end %>
+                   <a href="#" class="cancel" onclick="$('add_experience_form').hide(0.25); return false">[hide]</a>
+               </div>
+
+        
+        
+        
+        </li>
         <li><label>Race:</label><%= h @character.race.name %></li>
         <li><label>Size:</label><%= h @character.race.size %></li>
         <li><label>Gender:</label><%= @character.sex %></li>

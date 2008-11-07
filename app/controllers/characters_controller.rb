@@ -113,6 +113,7 @@ class CharactersController < ApplicationController
     end
   end
   
+  
   private
   
     def load_character

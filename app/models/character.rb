@@ -86,13 +86,13 @@ class Character < ActiveRecord::Base
   	if current_surges_remaining > 0
   	  if self.current_hit_points < 0
   	    self.current_hit_points = 0
-	    end
+	  end
   		self.current_surges_remaining = self.current_surges_remaining - 1
   		self.current_hit_points += (self.healing_surge_value + bonus_amount)
   		if self.current_hit_points > self.max_hit_points
   			self.current_hit_points = self.max_hit_points
   		end
-			return true
+		return true
   	end
   	return false
   end
@@ -137,6 +137,10 @@ class Character < ActiveRecord::Base
     else
       return false
     end
+  end
+  
+  def iGotzDaPowerUpz(newexp)
+  	self.experience_points = self.experience_points + newexp
   end
 end
 

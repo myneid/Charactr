@@ -102,6 +102,13 @@ class CharactersController < ApplicationController
     end
   end
   
+  def rest
+  	@character.rest
+  	if @character.save
+  		render :layout => false
+  	end
+  end
+  
   # DELETE /characters/1
   # DELETE /characters/1.xml
   def destroy

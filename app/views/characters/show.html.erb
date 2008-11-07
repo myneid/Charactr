@@ -28,6 +28,7 @@
         <li><label>Height:</label><%= h @character.height %></li>
         <li><label>Weight:</label><%= h @character.weight %></li>
         <li><label>Speed:</label><%= @character.race.speed %></li>
+        <li></label><%= link_to_remote "Rest for the night", {:url => {:action=>:rest, :id=>@character.id}} %></li>
       </ul>
     </div>
 <% end %>

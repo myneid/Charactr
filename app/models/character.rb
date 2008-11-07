@@ -142,6 +142,14 @@ class Character < ActiveRecord::Base
   def iGotzDaPowerUpz(newexp)
   	self.experience_points = self.experience_points + newexp
   end
+  
+  def rest
+  	#hp to max hp, healing surge to total and action points to 1
+  	self.current_action_points = 1
+  	self.current_hit_points = self.max_hit_points
+  	self.current_surges_remaining = self.surges_per_day
+  	self.temp_hit_points = 0
+  end
 end
 
 module Math

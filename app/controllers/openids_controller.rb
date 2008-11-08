@@ -21,7 +21,7 @@ class OpenidsController < ApplicationController
         
     if response.status == OpenID::Consumer::SUCCESS
       session[:openid] = response.identity_url
-      cookies[:openid] = {:value => session[:openid]}
+      cookies[:openid] = {:value => session[:openid], :expires=>(Time.now + 30.days)} #31 556 926
       @registration_info = response.extension_response('openid.sreg', true)
       logger.debug "reg info: #{@registration_info}" if logger.debug?
       

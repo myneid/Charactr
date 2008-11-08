@@ -2,5 +2,17 @@
 <p>
   Description: <%= h @campaign.description %>
 </p>
+<div id="characters">
+<table border=0>
+<tr><th>Name</th><th>HP</th><th>surges</th></tr>
+<% @characters.each do |c| %>
+
+<tr><th><%= c.name %></th><td><%= c.current_hit_points%></td><td><%= c.current_surges_remaining%></td></tr>
+
+<% end %>
+</table>
+
+</div>
+<%= periodically_call_remote :url=>{:action=>:characters, :id=>@campaign.id}, :update=>'characters', :frequency=>30 %>
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
 <%= link_to 'Back', campaigns_path %>

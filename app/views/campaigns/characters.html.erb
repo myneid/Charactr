@@ -1,0 +1,8 @@
+<table border=0>
+<tr><th>Name</th><th>HP</th><th>surges</th></tr>
+<% @characters.each do |c| %>
+
+<tr><th><%= c.name %></th><td><%= c.current_hit_points%></td><td><%= c.current_surges_remaining%></td></tr>
+
+<% end %>
+</table>

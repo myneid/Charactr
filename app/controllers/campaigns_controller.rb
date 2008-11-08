@@ -17,6 +17,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1.xml
   def show
     @campaign = Campaign.find(params[:id])
+    #@characters = @campaign.characters.find(:all,  :order =>"name asc")
+	@characters = @campaign.characters				11
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,5 +87,11 @@ class CampaignsController < ApplicationController
       format.html { redirect_to(campaigns_url) }
       format.xml  { head :ok }
     end
+  end
+  def characters
+    @campaign = Campaign.find(params[:id])
+   # @characters = @campaign.characters.find(:all,  :order=> "name asc")
+   @characters = @campaign.characters
+    render :layout => false
   end
 end

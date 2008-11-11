@@ -132,11 +132,7 @@ class Character < ActiveRecord::Base
 
   def trained?(skill)
     character_skill = character_skills.detect {|cs| cs.skill == skill}
-    if character_skill
-      return character_skill.trained?
-    else
-      return false
-    end
+    return character_skill && character_skill.trained?
   end
   
   def iGotzDaPowerUpz(newexp)

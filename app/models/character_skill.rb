@@ -8,14 +8,13 @@ class CharacterSkill < ActiveRecord::Base
 
   def total_bonus
     skill_modifier_method = "#{skill.key_ability.downcase}_modifier_with_level"
-    character.send(skill_modifier_method.to_sym) + self.misc_bonus + (self.trained ? 5 : 0)
+    character.send(skill_modifier_method.to_sym) + misc_bonus + (trained ? 5 : 0)
   end
   
   protected
   
   def set_defaults
-    self.trained = false unless self.trained?
-    true
+    self.trained ||= false
   end
 
 end

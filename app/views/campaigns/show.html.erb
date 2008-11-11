@@ -4,10 +4,10 @@
 </p>
 <div id="characters">
 <table border=0>
-<tr><th>Name</th><th>HP</th><th>surges</th></tr>
+<tr><th>Name</th><th>HP</th><th>surges</th><th>AP</th></tr>
 <% @characters.each do |c| %>
 
-<tr><th><%= c.name %></th><td><%= c.current_hit_points%></td><td><%= c.current_surges_remaining%></td></tr>
+<tr><td><%= c.name %></td><td><%= c.current_hit_points%></td><td><%= c.current_surges_remaining%></td><td><%= c.current_action_points %></td></tr>
 
 <% end %>
 </table>
